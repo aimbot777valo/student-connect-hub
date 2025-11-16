@@ -1,24 +1,335 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1f55f0ae-3a8b-4f43-8b84-40b3b77ad790</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student Welfare Community - Connect, Buy, Sell, and Learn Together">
+    <title>Student Welfare Community</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="student community, buy sell, student resources, hostel reviews, Q&A">
+    <meta name="author" content="Student Welfare Community">
+    <link rel="canonical" href="/">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <noscript>
+        <div class="noscript-message">
+            This application requires JavaScript to function. Please enable JavaScript in your browser settings.
+        </div>
+    </noscript>
 
-    <meta property="og:title" content="1f55f0ae-3a8b-4f43-8b84-40b3b77ad790" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Skip to Content Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    <div class="app-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+            <div class="sidebar-header">
+                <h1 class="logo">
+                    <i class="fas fa-users"></i>
+                    <span class="logo-text">SWC</span>
+                </h1>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-page="dashboard" aria-label="Dashboard">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-text">Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="chat" aria-label="General Chat">
+                    <i class="fas fa-comments"></i>
+                    <span class="nav-text">General Chat</span>
+                    <span class="badge">5</span>
+                </button>
+                <button class="nav-item" data-page="marketplace" aria-label="Buy & Sell">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="nav-text">Buy & Sell</span>
+                </button>
+                <button class="nav-item" data-page="qna" aria-label="Q&A">
+                    <i class="fas fa-question-circle"></i>
+                    <span class="nav-text">Q&A</span>
+                </button>
+                <button class="nav-item" data-page="resources" aria-label="Resources">
+                    <i class="fas fa-book"></i>
+                    <span class="nav-text">Resources</span>
+                </button>
+                <button class="nav-item" data-page="hostels" aria-label="Hostels">
+                    <i class="fas fa-building"></i>
+                    <span class="nav-text">Hostels</span>
+                </button>
+                <button class="nav-item" data-page="achievements" aria-label="Achievements">
+                    <i class="fas fa-trophy"></i>
+                    <span class="nav-text">Achievements</span>
+                </button>
+                <button class="nav-item" data-page="announcements" aria-label="Announcements">
+                    <i class="fas fa-bullhorn"></i>
+                    <span class="nav-text">Announcements</span>
+                </button>
+                <button class="nav-item" data-page="settings" aria-label="Settings">
+                    <i class="fas fa-cog"></i>
+                    <span class="nav-text">Settings</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                    <span class="nav-text">Dark Mode</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="main-content" role="main">
+            <!-- Dashboard Page -->
+            <section class="page active" id="dashboard-page">
+                <header class="page-header">
+                    <h2>Dashboard</h2>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="search" placeholder="Search anything..." id="globalSearch" aria-label="Global search">
+                        </div>
+                        <div class="user-profile-trigger" id="userProfileTrigger">
+                            <img src="assets/avatar-default.png" alt="User profile" class="user-avatar" id="headerAvatar">
+                            <span id="headerUsername">Loading...</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--accent-gradient);">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="onlineCount">0</h3>
+                            <p>Students Online</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--success-gradient);">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="resourceCount">0</h3>
+                            <p>Resources Shared</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--purple-gradient);">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="reviewCount">0</h3>
+                            <p>Hostel Reviews</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--danger-gradient);">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="listingCount">0</h3>
+                            <p>Active Listings</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="announcements-widget">
+                        <h3><i class="fas fa-bullhorn"></i> Recent Announcements</h3>
+                        <div id="recentAnnouncements"></div>
+                    </div>
+                    
+                    <div class="achievements-widget">
+                        <h3><i class="fas fa-trophy"></i> Your Achievements</h3>
+                        <div id="dashboardAchievements"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chat Page -->
+            <section class="page" id="chat-page">
+                <header class="page-header">
+                    <h2><i class="fas fa-comments"></i> General Chat</h2>
+                </header>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-label="Chat messages"></div>
+                    <div class="chat-input-container">
+                        <button class="emoji-trigger" id="emojiTrigger" aria-label="Add emoji">
+                            <i class="far fa-smile"></i>
+                        </button>
+                        <input type="text" id="chatInput" placeholder="Type a message..." aria-label="Chat message input">
+                        <button class="send-button" id="sendButton" aria-label="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="emoji-picker hidden" id="emojiPicker"></div>
+                </div>
+            </section>
+
+            <!-- Marketplace Page -->
+            <section class="page" id="marketplace-page">
+                <header class="page-header">
+                    <h2><i class="fas fa-shopping-bag"></i> Buy & Sell</h2>
+                    <button class="btn-primary" id="createListingBtn">
+                        <i class="fas fa-plus"></i> Create Listing
+                    </button>
+                </header>
+                <div class="marketplace-filters">
+                    <input type="search" id="marketplaceSearch" placeholder="Search items..." aria-label="Search marketplace">
+                    <select id="categoryFilter" aria-label="Filter by category">
+                        <option value="">All Categories</option>
+                        <option value="books">Books</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <select id="sortFilter" aria-label="Sort items">
+                        <option value="newest">Newest First</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+                <div class="marketplace-grid" id="marketplaceGrid"></div>
+            </section>
+
+            <!-- Q&A Page -->
+            <section class="page" id="qna-page">
+                <header class="page-header">
+                    <h2><i class="fas fa-question-circle"></i> Q&A</h2>
+                    <button class="btn-primary" id="askQuestionBtn">
+                        <i class="fas fa-plus"></i> Ask Question
+                    </button>
+                </header>
+                <div class="qna-filters">
+                    <button class="filter-btn active" data-sort="votes">Most Votes</button>
+                    <button class="filter-btn" data-sort="newest">Newest</button>
+                    <button class="filter-btn" data-sort="unanswered">Unanswered</button>
+                </div>
+                <div class="qna-list" id="qnaList"></div>
+            </section>
+
+            <!-- Resources Page -->
+            <section class="page" id="resources-page">
+                <header class="page-header">
+                    <h2><i class="fas fa-book"></i> Resources</h2>
+                    <button class="btn-primary" id="addResourceBtn">
+                        <i class="fas fa-plus"></i> Add Resource
+                    </button>
+                </header>
+                <div class="tabs">
+                    <button class="tab active" data-tab="visual">
+                        <i class="fas fa-video"></i> Visual
+                    </button>
+                    <button class="tab" data-tab="text">
+                        <i class="fas fa-file-pdf"></i> Text/PDFs
+                    </button>
+                </div>
+                <div class="resources-grid" id="resourcesGrid"></div>
+            </section>
+
+            <!-- Hostels Page -->
+            <section class="page" id="hostels-page">
+                <header class="page-header">
+                    <h2><i class="fas fa-building"></i> Hostels</h2>
+                </header>
+                <div class="hostels-list" id="hostelsList"></div>
+            </section>
+
+            <!-- Achievements Page -->
+            <section class="page" id="achievements-page">
+                <header class="page-header">
+                    <h2><i class="fas fa-trophy"></i> Achievements</h2>
+                </header>
+                <div class="achievements-grid" id="achievementsGrid"></div>
+            </section>
+
+            <!-- Announcements Page -->
+            <section class="page" id="announcements-page">
+                <header class="page-header">
+                    <h2><i class="fas fa-bullhorn"></i> Announcements</h2>
+                    <button class="btn-primary" id="createAnnouncementBtn">
+                        <i class="fas fa-plus"></i> Create Announcement
+                    </button>
+                </header>
+                <div id="announcementsList"></div>
+            </section>
+
+            <!-- Settings Page -->
+            <section class="page" id="settings-page">
+                <header class="page-header">
+                    <h2><i class="fas fa-cog"></i> Settings</h2>
+                </header>
+                <div class="settings-container">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <img src="assets/avatar-default.png" alt="Profile picture" id="profileAvatar" class="profile-avatar">
+                            <button class="btn-secondary" id="editProfileBtn">
+                                <i class="fas fa-edit"></i> Edit Profile
+                            </button>
+                        </div>
+                        <div class="profile-info" id="profileInfo">
+                            <h3 id="profileName">Loading...</h3>
+                            <p><i class="fas fa-graduation-cap"></i> <span id="profileCollege">-</span></p>
+                            <p><i class="fas fa-calendar"></i> Year: <span id="profileYear">-</span></p>
+                            <p><i class="fas fa-heart"></i> <span id="profileInterests">-</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="bottom-nav" id="bottomNav" role="navigation" aria-label="Mobile navigation">
+        <button class="bottom-nav-item active" data-page="dashboard" aria-label="Dashboard">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </button>
+        <button class="bottom-nav-item" data-page="chat" aria-label="Chat">
+            <i class="fas fa-comments"></i>
+            <span>Chat</span>
+        </button>
+        <button class="bottom-nav-item" data-page="marketplace" aria-label="Marketplace">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Market</span>
+        </button>
+        <button class="bottom-nav-item" data-page="qna" aria-label="Q&A">
+            <i class="fas fa-question-circle"></i>
+            <span>Q&A</span>
+        </button>
+        <button class="bottom-nav-item" data-page="settings" aria-label="More">
+            <i class="fas fa-ellipsis-h"></i>
+            <span>More</span>
+        </button>
+    </nav>
+
+    <!-- Modal Container -->
+    <div class="modal hidden" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="mock-data.js"></script>
+    <script src="app.js"></script>
+</body>
 </html>

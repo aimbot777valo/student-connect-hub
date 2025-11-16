@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
+# Student Welfare Community - Frontend
 
-## Project info
+A fully functional, responsive student community web application built with **vanilla HTML5, CSS3, and JavaScript**.
 
-**URL**: https://lovable.dev/projects/1f55f0ae-3a8b-4f43-8b84-40b3b77ad790
+## 🚀 Quick Start
 
-## How can I edit this code?
+Simply **double-click `index.html`** in your browser. No installation required!
 
-There are several ways of editing your application.
+## 📁 Project Structure
 
-**Use Lovable**
+- **index.html** - Main app structure
+- **styles.css** - All styles & design system
+- **app.js** - Application logic
+- **mock-data.js** - Sample data
+- **assets/** - Images (create this folder and add avatar images)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1f55f0ae-3a8b-4f43-8b84-40b3b77ad790) and start prompting.
+## 🎨 Customization Guide
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Change Colors (styles.css, lines 10-40)
+```css
+--accent: #ff6fa3;    /* Main pink color */
+--bg: #0f1115;        /* Background */
 ```
 
-**Edit a file directly in GitHub**
+### Change Fonts (index.html line 13 + styles.css line 33)
+Replace Google Fonts link and update `--font-family`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Dark/Light Mode
+Click theme toggle button in sidebar (controlled in app.js lines 140-155)
 
-**Use GitHub Codespaces**
+## 📝 File Functions
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+| File | Purpose | Key Sections |
+|------|---------|-------------|
+| **styles.css** | All styles | Lines 10-55: Colors, Lines 225-350: Sidebar |
+| **app.js** | All logic | Lines 80-150: localStorage, Lines 400-550: Chat |
+| **mock-data.js** | Sample data | Edit to change initial content |
 
-## What technologies are used for this project?
+## 💾 Data Management
 
-This project is built with:
+**localStorage Keys:**
+- `swc_user` - Current user
+- `swc_chat` - Chat messages  
+- `swc_marketplace` - Listings
+- `swc_qna` - Questions
+- `swc_resources` - Resources
+- `swc_hostels` - Hostels
+- `swc_achievements` - Achievements
+- `swc_announcements` - Announcements
+- `swc_theme` - Theme preference
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**Reset data:** Open console and run `localStorage.clear(); location.reload();`
 
-## How can I deploy this project?
+## 📱 Responsive Breakpoints
 
-Simply open [Lovable](https://lovable.dev/projects/1f55f0ae-3a8b-4f43-8b84-40b3b77ad790) and click on Share -> Publish.
+- Desktop: > 1024px
+- Tablet: 768-1024px
+- Mobile: < 768px
 
-## Can I connect a custom domain to my Lovable project?
+## ♿ Accessibility
 
-Yes, you can!
+- Full keyboard navigation
+- ARIA labels
+- WCAG AA compliant colors
+- Skip to content link
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🌐 Adding Backend
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+To add a real backend, replace localStorage calls with:
+- **Supabase** (recommended)
+- **Firebase**
+- **Node.js + Express**
+
+## Features
+
+✅ Dashboard with stats
+✅ Real-time style chat
+✅ Marketplace (buy/sell)
+✅ Q&A forum
+✅ Resource library
+✅ Hostel reviews
+✅ Achievement system
+✅ Announcements
+✅ Profile management
+✅ Dark/Light mode
+✅ Fully responsive
+
+Built with ❤️ using vanilla HTML, CSS, and JavaScript
