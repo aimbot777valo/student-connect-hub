@@ -14,16 +14,334 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      achievements: {
+        Row: {
+          claimed: boolean | null
+          created_at: string | null
+          description: string
+          icon: string | null
+          id: string
+          progress: number | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          claimed?: boolean | null
+          created_at?: string | null
+          description: string
+          icon?: string | null
+          id?: string
+          progress?: number | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          claimed?: boolean | null
+          created_at?: string | null
+          description?: string
+          icon?: string | null
+          id?: string
+          progress?: number | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      answers: {
+        Row: {
+          content: string
+          created_at: string | null
+          id: string
+          question_id: string
+          updated_at: string | null
+          user_id: string
+          votes: number | null
+        }
+        Insert: {
+          content: string
+          created_at?: string | null
+          id?: string
+          question_id: string
+          updated_at?: string | null
+          user_id: string
+          votes?: number | null
+        }
+        Update: {
+          content?: string
+          created_at?: string | null
+          id?: string
+          question_id?: string
+          updated_at?: string | null
+          user_id?: string
+          votes?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "answers_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: false
+            referencedRelation: "questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      hostel_reviews: {
+        Row: {
+          comment: string
+          created_at: string | null
+          hostel_id: string
+          id: string
+          images: string[] | null
+          rating: number | null
+          user_id: string
+        }
+        Insert: {
+          comment: string
+          created_at?: string | null
+          hostel_id: string
+          id?: string
+          images?: string[] | null
+          rating?: number | null
+          user_id: string
+        }
+        Update: {
+          comment?: string
+          created_at?: string | null
+          hostel_id?: string
+          id?: string
+          images?: string[] | null
+          rating?: number | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "hostel_reviews_hostel_id_fkey"
+            columns: ["hostel_id"]
+            isOneToOne: false
+            referencedRelation: "hostels"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      hostels: {
+        Row: {
+          amenities: string[] | null
+          created_at: string | null
+          description: string | null
+          distance: string | null
+          id: string
+          images: string[] | null
+          name: string
+          price: string | null
+          rating: number | null
+        }
+        Insert: {
+          amenities?: string[] | null
+          created_at?: string | null
+          description?: string | null
+          distance?: string | null
+          id?: string
+          images?: string[] | null
+          name: string
+          price?: string | null
+          rating?: number | null
+        }
+        Update: {
+          amenities?: string[] | null
+          created_at?: string | null
+          description?: string | null
+          distance?: string | null
+          id?: string
+          images?: string[] | null
+          name?: string
+          price?: string | null
+          rating?: number | null
+        }
+        Relationships: []
+      }
+      marketplace_items: {
+        Row: {
+          category: string | null
+          condition: string | null
+          created_at: string | null
+          description: string
+          id: string
+          images: string[] | null
+          price: number
+          title: string
+          user_id: string
+        }
+        Insert: {
+          category?: string | null
+          condition?: string | null
+          created_at?: string | null
+          description: string
+          id?: string
+          images?: string[] | null
+          price: number
+          title: string
+          user_id: string
+        }
+        Update: {
+          category?: string | null
+          condition?: string | null
+          created_at?: string | null
+          description?: string
+          id?: string
+          images?: string[] | null
+          price?: number
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          college: string | null
+          created_at: string | null
+          email: string | null
+          id: string
+          interests: string | null
+          name: string
+          phone_no: string | null
+          roll_no: string | null
+          updated_at: string | null
+          year: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          college?: string | null
+          created_at?: string | null
+          email?: string | null
+          id: string
+          interests?: string | null
+          name: string
+          phone_no?: string | null
+          roll_no?: string | null
+          updated_at?: string | null
+          year?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          college?: string | null
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          interests?: string | null
+          name?: string
+          phone_no?: string | null
+          roll_no?: string | null
+          updated_at?: string | null
+          year?: string | null
+        }
+        Relationships: []
+      }
+      questions: {
+        Row: {
+          created_at: string | null
+          description: string
+          id: string
+          tags: string[] | null
+          title: string
+          updated_at: string | null
+          user_id: string
+          votes: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          description: string
+          id?: string
+          tags?: string[] | null
+          title: string
+          updated_at?: string | null
+          user_id: string
+          votes?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          description?: string
+          id?: string
+          tags?: string[] | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string
+          votes?: number | null
+        }
+        Relationships: []
+      }
+      resources: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: string
+          rating: number | null
+          tags: string[] | null
+          thumbnail_url: string | null
+          title: string
+          type: string
+          url: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          rating?: number | null
+          tags?: string[] | null
+          thumbnail_url?: string | null
+          title: string
+          type: string
+          url: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          rating?: number | null
+          tags?: string[] | null
+          thumbnail_url?: string | null
+          title?: string
+          type?: string
+          url?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +468,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
